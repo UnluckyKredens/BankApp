@@ -1,0 +1,1 @@
+add-migration AddedUsersTable -Project AuthInfrastructure -OutputDir Persistence\Migrations
