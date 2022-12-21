@@ -1,0 +1,45 @@
+.container {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.login {
+  border-radius: 15px;
+  width: 60%;
+  height: 60%;
+  // background-color: #1e1338;
+ background: rgb(39,26,62);
+background: linear-gradient(180deg, rgba(39,26,62,1) 50%, rgba(18,19,28,1) 100%);
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+
+  &__info {
+    border-top-left-radius: 15px;
+    display: flex;
+    flex-direction: column;
+    padding: 3%;
+    width: 100%;
+    background: rgb(24,18,37);
+background: linear-gradient(180deg, rgba(24,18,37,1) 50%, rgba(18,19,28,1) 100%);
+  }
+
+  &__form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    &--register {
+      margin-top: 3%;
+      color: #8531A9;
+    }
+
+    mat-form-field {
+      width: 55%;
+    }
+  }
+}
+

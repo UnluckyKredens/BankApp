@@ -22,6 +22,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\..\Shared\BankAppModels\BankAppModels.csproj" />
+    <ProjectReference Include="..\AuthDomain\AuthDomain.csproj" />
     <ProjectReference Include="..\AuthInfrastructure\AuthInfrastructure.csproj" />
   </ItemGroup>
 
