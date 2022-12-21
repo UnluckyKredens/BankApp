@@ -8,10 +8,6 @@ namespace PaymentDomain.Exceptions
 {
     public class FailInsertException : Exception
     {
-        public FailInsertException(string message) : base(message)
-        {
-
-        }
-
+        public FailInsertException(string message) : base(message) {}
     }
 }

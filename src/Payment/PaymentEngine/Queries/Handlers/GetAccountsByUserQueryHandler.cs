@@ -22,7 +22,7 @@ namespace PaymentEngine.Queries.Handlers
         { 
            var accounts = await _repository.Get(request.UserId);
 
-            return accounts;  
+           return accounts;  
         }
     }
 }
