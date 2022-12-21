@@ -6,6 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using MediatR;
 using System.Reflection;
+using PaymentEngine.Identity;
 
 namespace PaymentEngine
 {
@@ -13,6 +14,7 @@ namespace PaymentEngine
     {
         public static IServiceCollection AddEngineService(this IServiceCollection services)
         {
+            services.AddTransient<IPermissionAccess, PermissionAccess>();
             services.AddMediatR(Assembly.GetExecutingAssembly());
             return services;
         }
