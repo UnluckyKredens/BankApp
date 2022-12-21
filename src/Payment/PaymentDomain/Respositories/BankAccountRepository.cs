@@ -27,6 +27,19 @@ namespace PaymentDomain.Respositories
             return bankAccount.Id;
         }
 
+        public async Task<BankAccount> ChangeBallance(string senderNumber, string recipentNumber, int amount)
+        {
+            var sender = await GetAccountByNumber(senderNumber);
+            var recipent = await GetAccountByNumber(recipentNumber);
+
+            sender.Balance -= amount;
+            recipent.Balance += amount;
+
+            await _context.SaveChangesAsync();
+
+            return sender;
+        }
+
         public async Task<List<BankAccount>> Get(Guid userId)
         {
             return await _context.BankAccounts.Where(x => x.UserId == userId).ToListAsync();
@@ -37,18 +50,5 @@ namespace PaymentDomain.Respositories
             return await _context.BankAccounts.FirstOrDefaultAsync(x => x.Number == number);
         }
 
-        public async Task<Transaction> ExecuteTransaction(Transaction transaction)
-        {
-            var sender = await GetAccountByNumber(transaction.SenderAccountNumber);
-            var recipent = await GetAccountByNumber(transaction.RecipentAccountNumber);
-
-            sender.Balance -= transaction.Amount;
-            recipent.Balance += transaction.Amount;
-
-            await _context.Transactions.AddAsync(transaction);
-            await _context.SaveChangesAsync();
-
-            return transaction;
-        }
     }
 }
