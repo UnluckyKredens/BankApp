@@ -5,6 +5,7 @@ using AuthInfrastructure.Exceptions;
 using AuthInfrastructure.Interfaces;
 using BankAppAuthAPI.Data;
 using BankAppModels.Entities;
+using BankAppModels.Entities.Auth;
 using BankAppModels.Informations.User;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Options;

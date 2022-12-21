@@ -1,4 +1,5 @@
 ﻿using BankAppModels.Entities;
+using BankAppModels.Entities.Auth;
 using Microsoft.EntityFrameworkCore;
 
 namespace BankAppAuthAPI.Data
