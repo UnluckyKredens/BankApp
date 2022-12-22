@@ -1,4 +1,7 @@
 using AuthDomain.Configs;
+using AuthDomain.Interfaces;
+using AuthDomain.Services;
+using AuthInfrastructure.Identity;
 using AuthInfrastructure.Interfaces;
 using AuthInfrastructure.Services;
 using BankAppAuthAPI.Data;
@@ -43,12 +46,18 @@ builder.Services.AddSwaggerGen(opt =>
         }
     });
 });
+builder.Services.AddHttpContextAccessor();
 var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
 builder.Services.AddDbContext<DataContext>(options => options
                     .UseSqlServer(connectionString));
 
+#region DI
+builder.Services.AddTransient<IUserService, UserService>();
+#endregion
+
 #region Authentication
 builder.Services.AddTransient<IIdentityService, IdentityService>();
+builder.Services.AddTransient<IPermissionAccess, PermissionAccess>();
 builder.Services.Configure<TokenConfig>(options => builder.Configuration.GetSection("Token").Bind(options));
 
 var tokenConfigurationSection = builder.Configuration.GetSection("Token");
