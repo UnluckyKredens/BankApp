@@ -32,7 +32,7 @@ namespace PaymentEngine.Commands.Handlers
                 RecipentName = request.RecipentName,
                 RecipentAccountNumber = request.RecipentAccountNumber,
                 Amount = request.Amount,
-                CreatedAt = DateTime.UtcNow,
+                CreatedAt = DateTime.Now,
                 Title = request.Title,
             };
 
