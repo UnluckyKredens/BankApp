@@ -4,6 +4,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  background-color: rgb(220, 220, 220);
 }
 
 .login {
@@ -11,19 +12,17 @@
   width: 60%;
   height: 60%;
   // background-color: #1e1338;
- background: rgb(39,26,62);
-background: linear-gradient(180deg, rgba(39,26,62,1) 50%, rgba(18,19,28,1) 100%);
   display: grid;
   grid-template-columns: 1fr 1fr;
+  background-color: #fff;
 
   &__info {
     border-top-left-radius: 15px;
     display: flex;
     flex-direction: column;
-    padding: 3%;
     width: 100%;
-    background: rgb(24,18,37);
-background: linear-gradient(180deg, rgba(24,18,37,1) 50%, rgba(18,19,28,1) 100%);
+    background-image: url("https://img.freepik.com/free-vector/banking-background-design_1223-62.jpg?w=2000");
+    background-size: contain;
   }
 
   &__form {

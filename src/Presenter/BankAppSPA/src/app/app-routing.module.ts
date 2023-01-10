@@ -13,9 +13,15 @@ const routes: Routes = [
           {
             path: 'auth',
             loadChildren: () => import('./modules/auth/auth.module').then(auth => auth.AuthModule)
+          },
+          {
+            path: '',
+            redirectTo:"/auth/login",
+            pathMatch: "full"
           }
+
         ]
-      }
+      },
     ]
   }
 ];

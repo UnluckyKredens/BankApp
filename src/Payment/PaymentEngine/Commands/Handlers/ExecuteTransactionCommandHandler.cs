@@ -23,7 +23,7 @@ namespace PaymentEngine.Commands.Handlers
 
         public async Task<Transaction> Handle(ExecuteTransactionCommand request, CancellationToken cancellationToken)
         {
-            if (await _bankAccountrepository.GetAccountByNumber(request.RecipentAccountNumber) == null)
+            if (await _bankAccountrepository.Get(Guid.Parse(request.RecipentAccountNumber)) == null)
                 throw new NotFoundException("User not found");
 
             var transacton = new Transaction
@@ -37,7 +37,7 @@ namespace PaymentEngine.Commands.Handlers
             };
 
             await _transactionRepository.ExecuteTransaction(transacton);
-            await _bankAccountrepository.ChangeBallance(transacton.SenderAccountNumber, transacton.RecipentAccountNumber, transacton.Amount);
+            await _bankAccountrepository.ChangeBalance(transacton.SenderAccountNumber, transacton.RecipentAccountNumber, transacton.Amount);
 
             return transacton;          
         }
