@@ -1,4 +1,5 @@
 ﻿using BankAppModels.Entities.Payment;
+using MediatR;
 using Microsoft.EntityFrameworkCore;
 using PaymentDomain.Interfaces;
 using PaymentInfrastructure.Persistence;
@@ -24,6 +25,17 @@ namespace PaymentDomain.Respositories
             await _context.AddAsync(bankAccount);
             await _context.SaveChangesAsync();
             return bankAccount.Id;
+        }
+
+        public async Task ChangeBalance(string senderNumber, string recipentNumber, int amount)
+        {
+            var sender = await _context.BankAccounts.FirstOrDefaultAsync(x => x.Number == senderNumber);
+            var recipent = await _context.BankAccounts.FirstOrDefaultAsync(x => x.Number == recipentNumber);
+
+            sender.Balance -= amount;
+            recipent.Balance += amount;
+
+            await _context.SaveChangesAsync();
         }
 
         public async Task<List<BankAccount>> Get(Guid userId)

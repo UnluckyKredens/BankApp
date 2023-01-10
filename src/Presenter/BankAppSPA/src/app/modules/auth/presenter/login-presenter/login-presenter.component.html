@@ -1,23 +1,21 @@
 <div class="container">
   <div class="login">
     <div class="login__info">
-        <h2>Hello Again!</h2>
-        <p>Lorem impsum itd</p>
+      <!-- <img src="https://img.freepik.com/free-vector/banking-background-design_1223-62.jpg?w=2000"> -->
     </div>
-    <form class="login__form ">
+    <form class="login__form">
       <h3>Sign In</h3>
-      <mat-form-field appearance="outline">
+      <mat-form-field>
         <mat-label>Login</mat-label>
         <input matInput>
       </mat-form-field>
-      <mat-form-field appearance="outline">
+      <mat-form-field>
         <mat-label>Enter your password</mat-label>
         <input matInput [type]="hide ? 'password' : 'text'">
         <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
           <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
         </button>
       </mat-form-field>
-
       <button mat-raised-button color="primary">Login</button>
       <a class="login__form--register">Register</a>
     </form>

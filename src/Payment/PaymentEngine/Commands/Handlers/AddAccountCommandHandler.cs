@@ -36,7 +36,8 @@ namespace PaymentEngine.Commands.Handlers
 
             var id = await _repository.Add(account);
 
-            if (id == Guid.Empty) throw new FailInsertException("Could not add bank account");
+            if (id == Guid.Empty) 
+                throw new FailInsertException("Could not add bank account");
 
             return id;
         }

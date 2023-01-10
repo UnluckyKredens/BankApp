@@ -15,6 +15,7 @@ namespace PaymentDomain
         public static IServiceCollection AddDomainService(this IServiceCollection services)
         {
             services.AddTransient<IBankAccountRepository, BankAccountRepository>();
+            services.AddTransient<ITransactionRepository, TransactionRepository>();
             return services;
         }
     }
