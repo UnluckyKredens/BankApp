@@ -9,6 +9,7 @@ namespace BankAppModels.Entities.Payment
 {
     public class Transaction : BaseEntity
     {
+        public string SenderName { get; set; }
         public string SenderAccountNumber { get; set; }
         public string RecipentAccountNumber { get; set; }
         public string RecipentName { get; set; }
